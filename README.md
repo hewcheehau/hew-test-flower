@@ -16,6 +16,7 @@ A flutter demo projects
 
 ## File structure
 main.dart
+
 app.dart 
 - features
     - home
@@ -29,6 +30,7 @@ app.dart
     - widgets
 - data 
 - domain
+  
 service_locator.dart
 
 ## Useful command
