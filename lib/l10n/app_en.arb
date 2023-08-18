@@ -1,0 +1,16 @@
+{
+  "home": "Home",
+  "mall": "Mall",
+  "discover": "Discover",
+  "inbox": "Inbox",
+  "account": "Account",
+  "myFlower": "My Flower",
+  "credit": "Credit",
+  "points": "Points",
+  "package": "Package",
+  "nextAppointment": "Next appointment",
+  "newServices": "New Services",
+  "newServicesDesc": "Recommended based on your preference",
+  "viewAllLabel": "View All",
+  "location": "Location"
+}
