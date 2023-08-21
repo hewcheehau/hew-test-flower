@@ -89,8 +89,12 @@ class HomeHeaderWidget extends StatelessWidget {
                     const SizedBox(
                       width: 5,
                     ),
-                    "123, Jalan Duta..."
-                        .customText(color: Colors.white, maxLine: 1),
+                    Flexible(
+                      child: "123, Jalan Duta Sri Petaling Jaya Selangor Malaysia".customText(
+                        color: Colors.white,
+                        maxLine: 1,
+                      ),
+                    ),
                   ],
                 ),
               )

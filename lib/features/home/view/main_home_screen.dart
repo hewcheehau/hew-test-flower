@@ -129,9 +129,8 @@ class MainHomeScreen extends StatelessWidget {
                 children: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
                     .mapIndexed((i, e) => StaggeredGridTile.fit(
                           crossAxisCellCount: 1,
-                          child: SizedBox(
-                            height: ScreenUtil().screenHeight *
-                                (i.isOdd ? 0.35 : 0.38),
+                          child: AspectRatio(
+                            aspectRatio: i.isOdd ? 8 / 13.5 : 8 / 15,
                             child: ProductWidget(
                               title: "Lorum",
                               subTitle: StringConstants.testText,
@@ -209,8 +208,10 @@ class _ShowLocation extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            address.customText(
-              color: AppColors.blueColor,
+            Flexible(
+              child: address.customText(
+                color: AppColors.blueColor,
+              ),
             ),
           ],
         ),
@@ -227,7 +228,7 @@ class _ShowLocation extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            time.customText(color: Colors.grey),
+            Flexible(child: time.customText(color: Colors.grey)),
           ],
         )
       ],

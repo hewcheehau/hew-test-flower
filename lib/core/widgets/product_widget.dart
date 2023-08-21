@@ -19,8 +19,8 @@ class ProductWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenUtil().screenHeight * 0.28,
-      width: ScreenUtil().screenWidth * 0.37,
+      height: ScreenUtil().screenHeight * 0.35,
+      width: ScreenUtil().screenWidth * 0.40,
       margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(3)),
@@ -50,15 +50,15 @@ class ProductWidget extends StatelessWidget {
                   const SizedBox(
                     height: 5,
                   ),
-                  title.customText(size: 10),
-                  subTitle.customText(
-                    textAlign: TextAlign.left,
-                  ),
+                  Expanded(child: title.customText(size: 10)),
+                  Expanded(flex: 2, child: subTitle.customText(size: 12)),
                   const SizedBox(
                     height: 5,
                   ),
                   Flexible(
-                      child: price.customText(color: AppColors.appMainColor))
+                    child: price
+                        .customText(color: AppColors.appMainColor, maxLine: 1),
+                  )
                 ],
               ),
             ),
