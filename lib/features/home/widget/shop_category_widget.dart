@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_flower/core/constants/app_colors.dart';
 import 'package:my_flower/core/utils/app_extension.dart';
-import 'package:scroll_indicator/scroll_indicator.dart';
+import 'package:my_flower/core/widgets/custom_scroll_indicator.dart';
 
 class ShopCategoryWidget extends StatefulWidget {
   const ShopCategoryWidget({super.key});
@@ -65,10 +65,10 @@ class _ShopCategoryWidgetState extends State<ShopCategoryWidget> {
           child: ScrollIndicator(
             scrollController: scrollController!,
             width: ScreenUtil().screenWidth*0.8,
-            height: 5,
+            height: 2,
             indicatorWidth: 50,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10), color: Colors.grey[300]),
+                borderRadius: BorderRadius.circular(10), color: Colors.green[800]),
             indicatorDecoration: BoxDecoration(
                 color: AppColors.appMainColor,
                 borderRadius: BorderRadius.circular(10)),

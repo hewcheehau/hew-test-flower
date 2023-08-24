@@ -17,8 +17,8 @@ class HomeHeaderWidget extends StatelessWidget {
           const SizedBox(
             height: kToolbarHeight,
           ),
-          context.loc.myFlower.toUpperCase().customText(
-              color: Colors.white, size: 25, fontWeight: FontWeight.bold),
+          context.loc.logo.toUpperCase().customText(
+              color: Colors.white, size: 30, fontWeight: FontWeight.bold),
           const SizedBox(
             height: 10,
           ),
@@ -31,7 +31,7 @@ class HomeHeaderWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                 child: context.loc.nextAppointment.toUpperCase().customText(
-                    color: Colors.white, fontWeight: FontWeight.bold, size: 10),
+                    color: Colors.white, fontWeight: FontWeight.bold, size: 9),
               ),
               const Expanded(
                   child: Divider(
@@ -40,7 +40,7 @@ class HomeHeaderWidget extends StatelessWidget {
             ],
           ),
           const SizedBox(
-            height: 10,
+            height: 12,
           ),
 
           /// Hard code
@@ -50,13 +50,13 @@ class HomeHeaderWidget extends StatelessWidget {
                 children: [
                   Image.asset(
                     "Icon - Calender".toPng(),
-                    height: 23,
-                    width: 23,
+                    height: 20,
+                    width: 20,
                   ),
                   const SizedBox(
                     width: 5,
                   ),
-                  "17 Aug 2023".customText(color: Colors.white),
+                  "17 Aug 2023".customText(color: Colors.white, size: 13),
                 ],
               ),
               const SizedBox(
@@ -72,7 +72,7 @@ class HomeHeaderWidget extends StatelessWidget {
                   const SizedBox(
                     width: 5,
                   ),
-                  "2:00 PM".customText(color: Colors.white),
+                  "2:00 PM".customText(color: Colors.white, size: 13),
                 ],
               ),
               const SizedBox(
@@ -82,7 +82,7 @@ class HomeHeaderWidget extends StatelessWidget {
                 child: Row(
                   children: [
                     Image.asset(
-                      "Icon -Arrow".toPng(),
+                      "Icon -Location".toPng(),
                       height: 23,
                       width: 23,
                     ),
@@ -90,18 +90,23 @@ class HomeHeaderWidget extends StatelessWidget {
                       width: 5,
                     ),
                     Flexible(
-                      child: "123, Jalan Duta Sri Petaling Jaya Selangor Malaysia".customText(
-                        color: Colors.white,
-                        maxLine: 1,
-                      ),
+                      child:
+                          "123, Jalan Duta Sri Petaling Jaya Selangor Malaysia"
+                              .customText(
+                                  color: Colors.white, maxLine: 1, size: 13),
                     ),
                   ],
                 ),
-              )
+              ),
+              Image.asset(
+                "Icon -Arrow".toPng(),
+                height: 23,
+                width: 23,
+              ),
             ],
           ),
           const SizedBox(
-            height: 10,
+            height: 15,
           ),
           Container(
             decoration: BoxDecoration(
@@ -166,6 +171,9 @@ class HomeHeaderWidget extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(
+            height: 15,
+          )
         ],
       ),
     );

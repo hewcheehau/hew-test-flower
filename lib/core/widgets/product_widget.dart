@@ -10,60 +10,93 @@ class ProductWidget extends StatelessWidget {
       this.subTitle = "",
       this.image = "",
       this.price = "RM -",
-      this.hasDiscount = false});
+      this.originalPrice = "",
+      this.hasDiscount = false,
+      this.hasBorderColor = true});
   final String title;
   final String subTitle;
   final String price;
   final String image;
-  final bool hasDiscount;
+  final String originalPrice;
+  final bool hasDiscount, hasBorderColor;
   @override
   Widget build(BuildContext context) {
+    var smallScreen = MediaQuery.of(context).size.width <= 380;
     return Container(
-      height: ScreenUtil().screenHeight * 0.35,
+      clipBehavior: Clip.hardEdge,
+      height: ScreenUtil().screenHeight * (smallScreen ? 0.39 : 0.35),
       width: ScreenUtil().screenWidth * 0.40,
-      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 4),
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(3)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
+          border: hasBorderColor
+              ? Border.fromBorderSide(BorderSide(color: Colors.grey[100]!))
+              : null,
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8)),
+      child: LayoutBuilder(
+        builder: (context, cts) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(image),
-              if (hasDiscount)
-                Positioned(
-                    right: 5.w,
-                    top: 5.h,
-                    child: Image.asset(
-                      "50�".toPng(),
-                      height: 35.h,
-                      width: 35.h,
-                    ))
-            ],
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Stack(
                 children: [
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Expanded(child: title.customText(size: 10)),
-                  Expanded(flex: 2, child: subTitle.customText(size: 12)),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Flexible(
-                    child: price
-                        .customText(color: AppColors.appMainColor, maxLine: 1),
-                  )
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: Image.asset(image, fit: BoxFit.fitWidth,)),
+                  if (hasDiscount)
+                    Positioned(
+                        right: 5.w,
+                        top: 5.h,
+                        child: Image.asset(
+                          "50�".toPng(),
+                          height: 35.h,
+                          width: 35.h,
+                        ))
                 ],
               ),
-            ),
-          )
-        ],
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Expanded(
+                          child: title.customText(size: 10, color: Colors.grey)),
+                      Expanded(flex: 2, child: subTitle.customText(size: 12, maxLine: price.isEmpty ? 3 : 2)),
+                      const SizedBox(
+                        height: 4,
+                      ),
+                      Visibility(
+                          visible: hasDiscount,
+                          child: Flexible(
+                            child: originalPrice.customText(
+                                color: Colors.grey,
+                                maxLine: 1,
+                                size: 10,
+                                textDecoration: TextDecoration.lineThrough, decorationColor: Colors.grey),
+                          )),
+                      const SizedBox(
+                        height: 4,
+                      ),
+                      Visibility(
+                        visible: price.isNotEmpty,
+                        child: Flexible(
+                          child: price.customText(
+                            color: AppColors.priceGreenColor,
+                            maxLine: 1,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
+          );
+        }
       ),
     );
   }

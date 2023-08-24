@@ -12,5 +12,7 @@
   "newServices": "New Services",
   "newServicesDesc": "Recommended based on your preference",
   "viewAllLabel": "View All",
-  "location": "Location"
+  "location": "Location",
+  "logo": "Logo",
+  "searchLabel": "Search Salon"
 }

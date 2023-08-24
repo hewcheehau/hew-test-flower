@@ -38,6 +38,7 @@ class _MyFlowerAppView extends StatelessWidget {
       theme: ThemeData(
         primaryColor: AppColors.appMainColor,
         useMaterial3: true,
+        scaffoldBackgroundColor: AppColors.scaffoldColor
       ),
       localizationsDelegates: const [
           AppLocalizations.delegate,

@@ -14,7 +14,7 @@ class HomeNavBar extends StatelessWidget {
         builder: (context, state) {
       return BottomNavigationBar(
         backgroundColor: Colors.white,
-        elevation: 5,
+        elevation: 10,
           type: BottomNavigationBarType.fixed,
           showSelectedLabels: true,
           onTap: (value) =>
@@ -54,6 +54,6 @@ class _SelectIcon extends StatelessWidget {
   final String path;
   @override
   Widget build(BuildContext context) {
-    return Image.asset(path.toPng(), height: 25, width: 25,);
+    return Image.asset(path.toPng(), height: 24, width: 24,);
   }
 }

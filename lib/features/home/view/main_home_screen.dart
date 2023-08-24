@@ -31,22 +31,18 @@ class MainHomeScreen extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Container(
-              height: 60.h,
+              height: 70.h,
               width: double.maxFinite,
+              color: Colors.white,
               padding: const EdgeInsets.all(ValueConstants.appPadding),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Image.asset("Button - Posts".toPng()),
-                  Image.asset("Button - Services".toPng()),
-                  Image.asset("Button - Shop".toPng())
+                  Flexible(child: Image.asset("Button - Shop".toPng())),
+                  Flexible(child: Image.asset("Button - Services".toPng())),
+                  Flexible(child: Image.asset("Button - Posts".toPng()))
                 ],
               ),
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 10,
             ),
           ),
           const SliverToBoxAdapter(
@@ -58,7 +54,7 @@ class MainHomeScreen extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-            child: Padding(
+            child: Container(
               padding: const EdgeInsets.all(ValueConstants.appPadding),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -110,7 +106,7 @@ class MainHomeScreen extends StatelessWidget {
           ),
           const SliverToBoxAdapter(
             child: SizedBox(
-              height: 10,
+              height: 25,
             ),
           ),
           SliverToBoxAdapter(
@@ -127,25 +123,23 @@ class MainHomeScreen extends StatelessWidget {
               child: StaggeredGrid.count(
                 crossAxisCount: 2,
                 children: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                    .mapIndexed((i, e) => StaggeredGridTile.fit(
-                          crossAxisCellCount: 1,
-                          child: AspectRatio(
-                            aspectRatio: i.isOdd ? 8 / 13.5 : 8 / 15,
+                    .mapIndexed((i, e) => AspectRatio(
+                            aspectRatio: i.isOdd ? 8 / 13.5 : 8 / 14.5,
                             child: ProductWidget(
                               title: "Lorum",
-                              subTitle: StringConstants.testText,
-                              price: "RM 150.00",
+                              subTitle: "${StringConstants.testText}${StringConstants.testText}",
+                              price: "",
                               image: "Image".toJpg(),
+                              hasBorderColor: false,
                             ),
-                          ),
-                        ))
+                          ),)
                     .toList(),
               ),
             ),
           ),
           const SliverToBoxAdapter(
             child: SizedBox(
-              height: 10,
+              height: 20,
             ),
           ),
           SliverToBoxAdapter(
@@ -156,7 +150,7 @@ class MainHomeScreen extends StatelessWidget {
                 children: [
                   context.loc.location.toUpperCase().customText(
                       color: AppColors.appMainColor,
-                      size: 15,
+                      size: 13,
                       fontWeight: FontWeight.bold),
                   const HomeMapWidget(),
                   const _ShowLocation(
@@ -168,14 +162,20 @@ class MainHomeScreen extends StatelessWidget {
                     height: 20,
                   ),
                   const _ShowLocation(
-                    title: "The Garden Mall",
+                    title: "The Gardens Mall",
                     time: "10am - 10pm",
-                    address: "10 Floor, Lorem Lpsum, Jalan 1 W.P Kuala Lumpur",
+                    address:
+                        "10 Floor, Lorem Lpsum, Jalan 1 W.P Kuala Lumpur Malaysia",
                   )
                 ],
               ),
             ),
-          )
+          ),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 20,
+            ),
+          ),
         ],
       ),
     );
@@ -193,42 +193,45 @@ class _ShowLocation extends StatelessWidget {
       children: [
         title.customText(
             color: AppColors.appMainColor,
-            size: 15,
+            size: 13,
             fontWeight: FontWeight.bold),
         const SizedBox(
-          height: 10,
+          height: 15,
         ),
         Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(
-              "Icon -Location".toPng(),
-              height: 18,
-              width: 18,
+              "Icon - Location2".toPng(),
+              height: 17,
+              width: 17,
             ),
             const SizedBox(
               width: 10,
             ),
             Flexible(
               child: address.customText(
-                color: AppColors.blueColor,
-              ),
+                  color: AppColors.blueColor,
+                  size: 12,
+                  textDecoration: TextDecoration.underline),
             ),
           ],
         ),
         const SizedBox(
-          height: 15,
+          height: 20,
         ),
         Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(
               "Icon - Clock".toPng(),
-              height: 18,
-              width: 18,
+              height: 17,
+              width: 17,
             ),
             const SizedBox(
               width: 10,
             ),
-            Flexible(child: time.customText(color: Colors.grey)),
+            Flexible(child: time.customText(color: Colors.grey, size: 12)),
           ],
         )
       ],
