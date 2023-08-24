@@ -38,10 +38,6 @@ service_locator.dart
 
 ## Screenshot
 
-<img src="assets/screenshot/ss01.png" width="200">
-<img src="assets/screenshot/ss02.png" width="200">
-<img src="assets/screenshot/ss03.png" width="200">
-<img src="assets/screenshot/ss04.png" width="200">
 
 ## References/ Documentation
 1. Localization: https://docs.flutter.dev/ui/accessibility-and-localization/internationalization
